@@ -1,9 +1,9 @@
 import React from "react";
 
-function App() {
+function App({ hallo }) {
   return (
     <>
-      <div>Plugin1 talking here.</div>
+      <div>Plugin2 talking here. Hallo {hallo}</div>
     </>
   );
 }

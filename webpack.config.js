@@ -1,5 +1,6 @@
 // @ts-check
 
+const path = require('path');
 const ZipPlugin = require('zip-webpack-plugin');
 const ModuleFederationPlugin = require('webpack').container.ModuleFederationPlugin;
 const deps = require('./package.json').dependencies;
@@ -9,6 +10,13 @@ module.exports = {
     cache: false,
     mode: 'development',
     devtool: 'source-map',
+
+    output: {
+        filename: '[name].[contenthash].js',
+        path: path.resolve(__dirname, 'dist'),
+        clean: true,
+        uniqueName: 'plugin2',
+    },
 
     optimization: {
         minimize: false,
@@ -34,7 +42,7 @@ module.exports = {
 
     plugins: [
         new ModuleFederationPlugin({
-            name: 'remote',
+            name: 'plugin2',
             filename: 'remoteEntry.js',
             exposes: {
                 // './react': 'react',
@@ -43,11 +51,19 @@ module.exports = {
             },
             shared: {
                 ...deps,
+                "react": {
+                    eager: true,
+                    singleton: true,
+                },
+                "react-dom": {
+                    eager: true,
+                    singleton: true,
+                },
             },
 
         }),
         new ZipPlugin({
-            filename: 'plugin.zip',
+            filename: 'plugin2.zip',
         })
     ],
 };
