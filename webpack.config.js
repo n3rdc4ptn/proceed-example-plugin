@@ -50,11 +50,19 @@ module.exports = {
             },
             shared: {
                 ...deps,
+                "react": {
+                    eager: true,
+                    singleton: true,
+                },
+                "react-dom": {
+                    eager: true,
+                    singleton: true,
+                },
             },
 
         }),
         new ZipPlugin({
-            filename: 'plugin.zip',
+            filename: 'plugin1.zip',
         })
     ],
 };
