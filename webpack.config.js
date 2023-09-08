@@ -22,11 +22,16 @@ module.exports = {
     },
 
     resolve: {
-        extensions: ['.jsx', '.js', '.json', '.mjs'],
+        extensions: ['.jsx', '.js', '.json', '.mjs', '.ts', '.tsx'],
     },
 
     module: {
         rules: [
+            {
+                test: /\.tsx?$/,
+                use: 'ts-loader',
+                exclude: /node_modules/,
+            },
             {
                 test: /\.jsx?$/,
                 loader: require.resolve('babel-loader'),
