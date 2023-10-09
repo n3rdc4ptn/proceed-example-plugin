@@ -90,7 +90,7 @@ module.exports = [
 
         plugins: [
             new ModuleFederationPlugin({
-                name: 'plugin1',
+                name: `${manifest.name}`,
 
                 filename: 'remoteEntry.js',
                 exposes: {
