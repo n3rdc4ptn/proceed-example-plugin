@@ -4,6 +4,7 @@
   "license": "MIT",
   "dependencies": {
     "@module-federation/node": "^1.0.7",
+    "glob": "^10.3.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
@@ -25,10 +26,8 @@
     "zip-webpack-plugin": "^4.0.1"
   },
   "scripts": {
-    "dev": "concurrently \"npm run start\" \"npm run serve\"",
-    "start": "webpack --watch",
-    "build": "webpack --mode production",
-    "serve": "serve dist -p 8081",
-    "clean": "rm -rf dist"
+    "build": "webpack --mode production && cp manifest.yml dist/ && npm run zip",
+    "clean": "rm -rf dist",
+    "zip": "cd dist && zip -r plugin1.zip *"
   }
 }
