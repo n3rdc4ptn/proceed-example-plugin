@@ -2,6 +2,7 @@
   "name": "plugin1",
   "version": "1.0.0",
   "license": "MIT",
+  "main": "",
   "dependencies": {
     "@module-federation/node": "^1.0.7",
     "glob": "^10.3.4",

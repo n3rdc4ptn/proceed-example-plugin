@@ -60,6 +60,8 @@ module.exports = [
             path: path.resolve(__dirname, 'dist'),
             uniqueName: `${manifest.bundle}`,
         },
+        entry: {},
+
 
         optimization: {
             minimize: false,
@@ -94,7 +96,7 @@ module.exports = [
 
                 filename: 'remoteEntry.js',
                 exposes: {
-                    './Module': './src/remote-entry.js',
+                    './Module': './src/App.jsx',
                 },
                 shared: {
                     ...deps,
