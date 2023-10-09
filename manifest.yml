@@ -11,7 +11,8 @@ permissions:
   plugin:
     - name: pluginpermission1
       description: What does it do...
-extensions:
+modules:
   - type: ui
     extensionpoint: processlistview
     module: ./CustomProcessListView
+    file: ./src/App.jsx

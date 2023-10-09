@@ -13,6 +13,8 @@ const manifestRaw = fs.readFileSync("manifest.yml", "utf8");
 const manifest = yaml.parse(manifestRaw);
 
 
+
+
 // Clear dist folder
 const distFolder = path.resolve(__dirname, 'dist');
 if (fs.existsSync(distFolder)) {
@@ -95,9 +97,11 @@ module.exports = [
                 name: `${manifest.name}`,
 
                 filename: 'remoteEntry.js',
-                exposes: {
-                    './Module': './src/App.jsx',
-                },
+
+                exposes: manifest.modules.filter(mod => mod.type == "ui").reduce((acc, mod) => {
+                    acc[mod.module] = mod.file
+                    return acc
+                }, {}),
                 shared: {
                     ...deps,
                     "react": {
