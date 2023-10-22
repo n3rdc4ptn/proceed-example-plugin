@@ -16,3 +16,7 @@ modules:
     extensionpoint: processlistview
     module: ./CustomProcessListView
     file: ./src/App.jsx
+  - type: ui
+    extensionpoint: demo
+    module: ./Demo
+    file: ./src/Demo.tsx

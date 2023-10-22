@@ -1,19 +1,12 @@
-// @ts-check
 const fs = require('fs');
-const { glob } = require('glob');
 const path = require('path');
-const ZipPlugin = require('zip-webpack-plugin');
+const yaml = require('yaml');
 const ModuleFederationPlugin = require('webpack').container.ModuleFederationPlugin;
 const deps = require('./package.json').dependencies;
-
-const yaml = require('yaml');
 
 // Read manifest
 const manifestRaw = fs.readFileSync("manifest.yml", "utf8");
 const manifest = yaml.parse(manifestRaw);
-
-
-
 
 // Clear dist folder
 const distFolder = path.resolve(__dirname, 'dist');
@@ -24,34 +17,6 @@ fs.mkdirSync(distFolder);
 
 
 module.exports = [
-    // {
-    //     name: "server",
-    //     cache: false,
-    //     mode: 'development',
-    //     devtool: 'source-map',
-    //     entry: glob.sync('./src/server/**/*.{js,ts}').map((file) => path.resolve(__dirname, file)),
-    //     output: {
-    //         filename: 'server.[name].[contenthash].js',
-    //         path: path.resolve(__dirname, 'dist'),
-    //         uniqueName: 'plugin1.server',
-    //     },
-    //     optimization: {
-    //         minimize: false,
-    //     },
-
-    //     resolve: {
-    //         extensions: ['.js', '.ts']
-    //     },
-    //     module: {
-    //         rules: [
-    //             {
-    //                 test: /\.ts?$/,
-    //                 use: 'ts-loader',
-    //                 exclude: /node_modules/,
-    //             },
-    //         ],
-    //     }
-    // },
     {
         name: "client",
         cache: false,
@@ -63,16 +28,12 @@ module.exports = [
             uniqueName: `${manifest.bundle}`,
         },
         entry: {},
-
-
         optimization: {
             minimize: false,
         },
-
         resolve: {
             extensions: ['.jsx', '.js', '.json', '.mjs', '.ts', '.tsx'],
         },
-
         module: {
             rules: [
                 {
@@ -90,8 +51,6 @@ module.exports = [
                 },
             ],
         },
-
-
         plugins: [
             new ModuleFederationPlugin({
                 name: `${manifest.name}`,
