@@ -1,12 +1,12 @@
 import { PluginUIComponent } from "proceed-plugin-sdk";
 import React from "react";
 
-const App: PluginUIComponent = ({ context }) => {
+const Meta: PluginUIComponent = ({ context }) => {
   return (
     <>
-      <div>Plugin1 talking here.</div>
+      <div>Plugin1 is installed.</div>
     </>
   );
 };
 
-export default App;
+export default Meta;

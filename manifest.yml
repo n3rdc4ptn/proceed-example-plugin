@@ -15,8 +15,12 @@ modules:
   - type: ui
     extensionpoint: processlistview
     module: ./CustomProcessListView
-    file: ./src/App.jsx
+    file: ./src/App.tsx
   - type: ui
     extensionpoint: demo
     module: ./Demo
     file: ./src/Demo.tsx
+  - type: ui
+    extensionpoint: plugins-page
+    module: ./Meta
+    file: ./src/Meta.tsx

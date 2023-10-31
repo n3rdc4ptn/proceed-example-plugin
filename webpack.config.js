@@ -63,14 +63,14 @@ module.exports = [
                 }, {}),
                 shared: {
                     ...deps,
-                    "react": {
+                    react: {
                         eager: true,
                         singleton: true,
                     },
                     "react-dom": {
                         eager: true,
                         singleton: true,
-                    },
+                    }
                 },
 
             })
