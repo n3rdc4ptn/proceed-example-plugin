@@ -2,19 +2,18 @@ name: Plugin1
 bundle: com.example.plugin1
 version: 1.0.0
 description: Plugin1
-permissions:
-  scopes:
+security:
+  pluginpermissions:
     - read:processes
   external:
-    fetch:
-      - external.system.example.com
-  plugin:
+    - external.system.example.com
+  permissions:
     - name: pluginpermission1
       description: What does it do...
 modules:
   - type: ui
-    extensionpoint: processlistview
     module: ./CustomProcessListView
+    extensionpoint: processlistview
     file: ./src/App.tsx
   - type: ui
     extensionpoint: demo

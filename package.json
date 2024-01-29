@@ -4,10 +4,11 @@
   "license": "MIT",
   "main": "",
   "dependencies": {
+    "antd": "^5.10.3",
     "proceed-plugin-core-library": "^1.0.2",
-    "proceed-plugin-sdk": "^1.0.3",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "proceed-plugin-sdk": "^1.0.5",
+    "react": "18.2.0",
+    "react-dom": "18.2.0"
   },
   "devDependencies": {
     "@babel/core": "7.21.4",

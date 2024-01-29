@@ -53,7 +53,7 @@ module.exports = [
         },
         plugins: [
             new ModuleFederationPlugin({
-                name: `${manifest.name}`,
+                name: `${manifest.bundle.replaceAll(".", "_")}`,
 
                 filename: 'remoteEntry.js',
 
